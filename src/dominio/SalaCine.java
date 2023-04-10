@@ -37,10 +37,13 @@ public class SalaCine {
 		return vacia;
 	}
 
-	public void agregarButaca(int fila, int columna) {
+	public boolean agregarButaca(int fila, int columna) {
 
 		if (butacaVacia(fila, columna)) {
-			butacas[fila][columna] = 2;
+			butacas[fila][columna] = 1;
+			return true;
+		} else {
+			return false;
 		}
 
 	}
@@ -58,8 +61,11 @@ public class SalaCine {
 	}
 
 	public boolean hayEspacioParaPersonas(int cantidadPersonas) {
+		
 		for (int i = 0; i < butacas.length; i++) {
+			
 			int contador = 0;
+			
 			for (int j = 0; j < butacas[i].length; j++) {
 				if (butacas[i][j] == 0) { // asiento vacío
 					contador++;
@@ -68,7 +74,6 @@ public class SalaCine {
 
 						// imprimir ubicación del grupo acomodado
 						return true;
-
 					}
 				}
 			}
